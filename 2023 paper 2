@@ -1,0 +1,26 @@
+if systemArmed == True and (doorSensorActive == True or windowSensorActive == True):
+    SoundAlarm()
+elif systemArmed == True and doorSensorActive == True:
+    SoundAlarm()
+elif systemArmed == True and windowSensorActive == True:
+    SoundAlarm()
+
+
+#p16 
+data = ""
+def saveLogs(data,filename):
+
+    file = open(filename, 'a') 
+    file.write(data + '\n') 
+    file.close()
+
+
+#p18
+length = 0
+arrayEvents = [['05/02/2023', 'WS2' ,'Window', 38]]
+date = input("enter a date: ")
+for i in arrayEvents:
+    if date == i[0]:
+        length = length + i[3]
+print(" sensors were activated for", length, 'seconds on', date)
+    
